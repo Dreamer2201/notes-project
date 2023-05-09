@@ -39,7 +39,7 @@ function App() {
   useEffect(() => {
     createCollectionInIndexDB()
     getAllNotes()
-  }, []) 
+  }) 
 
 
 const getAllNotes = () => {
@@ -153,7 +153,7 @@ const addNotice = (userNote) => {
       setIsActiveNote(note)
     }
 
-    const isNotes = notices.length
+    // const isNotes = notices.length
 
   return (
     <NoteContext value={isActiveNote} >

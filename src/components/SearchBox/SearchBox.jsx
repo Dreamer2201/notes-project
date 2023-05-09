@@ -7,7 +7,7 @@ import { useState, useContext } from 'react';
 import {noteContext} from '../../context'
 import { FaPlus } from "react-icons/fa"
 import { RiDeleteBinLine } from "react-icons/ri"
-import { FiEdit2 } from "react-icons/fi"
+// import { FiEdit2 } from "react-icons/fi"
 import styles from './searchbox.module.scss'
 import Modal from '../Modal/ModalDelete'
 
