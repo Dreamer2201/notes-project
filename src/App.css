@@ -1,0 +1,21 @@
+.App {
+ 
+}
+
+
+.App-header {
+ 
+}
+
+.App-main {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+}
+.wrapperWorkSpace {
+  width: 70%;
+  min-height: calc(100vh - 50px);
+  outline: 1px solid grey;
+}

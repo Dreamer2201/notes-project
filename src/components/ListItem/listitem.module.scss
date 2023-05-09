@@ -1,0 +1,7 @@
+.item {
+    background-color: aliceblue;
+    
+    &.active {
+        background-color: rgb(80, 171, 157);
+    }
+}
