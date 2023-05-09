@@ -39,7 +39,7 @@ function App() {
   useEffect(() => {
     createCollectionInIndexDB()
     getAllNotes()
-  }) 
+  }, []) 
 
 
 const getAllNotes = () => {
