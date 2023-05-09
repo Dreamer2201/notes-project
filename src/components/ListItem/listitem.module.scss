@@ -1,7 +1,26 @@
+
 .item {
-    background-color: aliceblue;
-    
+    padding-top: 10;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    border-bottom: 1px solid rgb(178, 172, 172);
     &.active {
-        background-color: rgb(80, 171, 157);
+        background-color: rgb(157, 159, 162);
+    }
+}
+.textNote {
+    padding-right: 5px;
+    font-size: 12px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    @media screen and (min-width: 768px) {
+        font-size: 14px;
+    }
+}
+.timeCreatedNote {
+    font-size: 10px;
+    @media screen and (min-width: 768px) {
+        font-size: 12px;
     }
 }

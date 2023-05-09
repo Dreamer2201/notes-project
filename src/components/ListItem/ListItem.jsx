@@ -19,13 +19,15 @@ export default function ListItem({note, changeActive }) {
     }
   }
 
+    const date = note.createdAT
+ 
   const isActive = note.id === context.note.id
 
   return (
     <li className={isActive ? `${styles.item} ${styles.active}` : `${styles.item}`} onClick={() => setActiveNote(note)}>
 
-        <p>{note.text}</p>
-        <p>time</p>
+        <p className={styles.textNote} >{note.text}</p>
+        <p className={styles.timeCreatedNote} >{date.toLocaleString()}</p>
 
     </li>
   )

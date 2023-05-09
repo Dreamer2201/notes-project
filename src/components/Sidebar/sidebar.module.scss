@@ -1,5 +1,10 @@
 .wrapperSidebar {
     width: 30%;
-    min-height: calc(100vh - 50px);
+    max-height: calc(100vh - 50px);
     outline: 1px solid grey;
+    overflow-y: scroll;
+}
+.list {
+    margin-left: 10px;
+    list-style: none;
 }

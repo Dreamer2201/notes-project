@@ -3,6 +3,62 @@
     justify-content: space-between;
     align-items: center;
 
-    height: 50px;
+    height: 44px;
     background-color: grey;
+}
+.wrapperBtns {
+    margin-left: 10px;
+    display: flex;
+    gap: 5px;
+    @media screen and (min-width: 768px) {
+        margin-left: 10px;
+    }
+}
+.button {
+    cursor: pointer;
+    padding: 5px auto;
+    background-color: #fff;
+    border: transparent;
+    border-radius: 5px;
+    &:disabled {
+        background-color: rgb(106, 98, 98);
+    }
+    &:not([disabled]):hover {
+        border: 1px solid rgb(156, 145, 145);
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 50px;
+    }
+}
+.label {
+    display: none;
+    @media screen and (min-width: 768px) {
+        display: inline-block;
+        color: antiquewhite;
+        margin-right: 5px;
+    }
+}
+.input {
+    margin-right: 10px;
+    padding-left: 10px;
+    border: transparent;
+    border-radius: 5px;
+    outline: none;
+    
+    &::placeholder {
+        color: grey;
+        @media screen and (min-width: 768px) {
+            color: transparent;
+        }
+    }
+    &:hover {
+        border-color: antiquewhite;
+    }
+    &:focus {
+        border-color: antiquewhite;
+    }
+    @media screen and (min-width: 768px) {
+        margin-right: 20px;
+    }
 }

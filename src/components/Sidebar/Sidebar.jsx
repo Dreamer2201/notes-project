@@ -18,7 +18,7 @@ export default function Sidebar({notes }) {
    
   return (
     <div className={styles.wrapperSidebar}>
-        {notes && <ul>
+        {notes && <ul className={styles.list} >
             {elements}
         </ul>}
     </div>

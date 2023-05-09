@@ -27,6 +27,7 @@ export default function Workspace({add, update, activeNote }) {
       const newNotice = {
         id: context.note.id,
         text,
+        createdAT: new Date()
       }
   
       console.log('updated note')
@@ -48,8 +49,8 @@ export default function Workspace({add, update, activeNote }) {
 
 
   return (
-    <form onSubmit={onUpdateNotice} >
-        <input 
+    <form className={styles.form} onSubmit={onUpdateNotice} >
+        <input className={styles.input}
         name="notice"
         typeof="textarea"
         placeholder="Enter text notice"
@@ -57,7 +58,11 @@ export default function Workspace({add, update, activeNote }) {
         onChange={onTextAreaChange}
         >
         </input>
-        <button type='submit'>Save</button>
+        <button 
+        className={styles.button} 
+        type='submit'
+        > Save
+        </button>
     </form>
   )
 }

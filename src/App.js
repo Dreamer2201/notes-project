@@ -141,7 +141,9 @@ const addNotice = (userNote) => {
     if(!queryWord) {
       return notices
     }
-    const filterNotes = notices.filter(item => item.text.includes(queryWord))
+    const queryNormolaze = queryWord.toLocaleLowerCase();
+
+    const filterNotes = notices.filter(item => item.text.toLocaleLowerCase().includes(queryNormolaze))
     console.log(filterNotes)
     return filterNotes
   }
@@ -162,8 +164,8 @@ const addNotice = (userNote) => {
       <main className='App-main'>
         <Sidebar notes={filterNotes} setActive={IsActiveNote} activeNote={isActiveNote} />
         <div className="wrapperWorkSpace">
-          {isNotes && <Workspace add={addNotice} update={updateNotice} activeNote={isActiveNote}/>}
-        </div>
+          <Workspace add={addNotice} update={updateNotice} activeNote={isActiveNote}/>
+          </div>
       </main>
     </div>
     </NoteContext>
