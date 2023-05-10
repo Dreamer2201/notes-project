@@ -28,7 +28,6 @@ const createCollectionInIndexDB = () => {
 
   }
   request.onsuccess = () => {
-    console.log('Success')
   }
 }
 
@@ -77,7 +76,6 @@ const addNotice = (userNote) => {
         db.close()
         getAllNotes()
       }
-      console.log('note added')
       }
 
       notice.onerror = () => {
@@ -99,7 +97,6 @@ const addNotice = (userNote) => {
           db.close()
           getAllNotes()
         }
-        console.log('note updated')
         }
   
         notice.onerror = () => {
@@ -114,15 +111,13 @@ const addNotice = (userNote) => {
       const db = dbPromise.result
       const tx = db.transaction('notices', 'readwrite')
       const notices = tx.objectStore('notices')
-
       const deletedNote = notices.delete(id)
   
       deletedNote.onsuccess = () => {
-        console.log('note deleted')
         getAllNotes()
         setIsActiveNote('')
         }
-  
+
         deletedNote.onerror = () => {
           console.log('error')
           }
@@ -131,28 +126,23 @@ const addNotice = (userNote) => {
 
     const handleChangeFilter = (e) => {
       const { value } = e.target;
-      console.log(value)
       setQueryWord(value);
     }
-
 
   const filterNotesByQuery = () => {
     if(!queryWord) {
       return notices
     }
     const queryNormolaze = queryWord.toLocaleLowerCase();
-
-    const filterNotes = notices.filter(item => item.text.toLocaleLowerCase().includes(queryNormolaze))
-    console.log(filterNotes)
+    const filterEmptyNotes = notices.filter(item => item.text !== undefined)
+    const filterNotes = filterEmptyNotes.filter(item => item.text.toLocaleLowerCase().includes(queryNormolaze))
     return filterNotes
   }
   const filterNotes = filterNotesByQuery()
 
-    const IsActiveNote = (note) => {
+  const IsActiveNote = (note) => {
       setIsActiveNote(note)
     }
-
-    // const isNotes = notices.length
 
   return (
     <NoteContext value={isActiveNote} >

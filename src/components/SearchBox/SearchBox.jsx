@@ -5,7 +5,6 @@ import { useState, useContext } from 'react';
 import {noteContext} from '../../context'
 import { FaPlus } from "react-icons/fa"
 import { RiDeleteBinLine } from "react-icons/ri"
-// import { FiEdit2 } from "react-icons/fi"
 import styles from './searchbox.module.scss'
 import Modal from '../Modal/ModalDelete'
 
@@ -23,7 +22,6 @@ export default function SearchBox({ add, removeNote, searchNotes }) {
 
     const addNewNote = () => {
         context.changeNote({id: '', text: ''})
-        console.log('I am clean context')
         const idNewNote = nanoid()
         const newNote = {
             id: idNewNote,
@@ -31,7 +29,6 @@ export default function SearchBox({ add, removeNote, searchNotes }) {
             createdAT: new Date()
         }
       add(newNote)
-      console.log('added note')
       context.changeNote(newNote)
         
     }
@@ -58,13 +55,6 @@ export default function SearchBox({ add, removeNote, searchNotes }) {
                     </div>
                 </IconContext.Provider>
             </button>
-            {/* <button className={styles.button} type='button' disabled={!context.note.id.trim().length} >
-                <IconContext.Provider value={{ color: "red", className: "global-class-name" }}>
-                    <div>
-                        <FiEdit2 />
-                    </div>
-                </IconContext.Provider>
-            </button> */}
         </div>
         <div>
         <label className={styles.label} htmlFor={filterId}>Find note</label>

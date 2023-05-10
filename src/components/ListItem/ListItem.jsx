@@ -19,7 +19,7 @@ export default function ListItem({note, changeActive }) {
     }
   }
 
-    const date = note.createdAT
+  const date = note.createdAT
  
   const isActive = note.id === context.note.id
 

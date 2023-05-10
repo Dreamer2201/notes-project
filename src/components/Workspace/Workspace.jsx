@@ -6,19 +6,18 @@ import styles from './workspace.module.scss'
 import { nanoid } from 'nanoid';
 
 
-export default function Workspace({add, update, activeNote }) {
+export default function Workspace({add, update }) {
   const [text, setText] = useState('')
 
   const context = useContext(noteContext)
-  
+ 
+
   useEffect(() => {
     setText(context.note.text)
   }, [context])
 
-
-  const onTextAreaChange = e => {
-    console.log(e.currentTarget.value)
-      setText(e.currentTarget.value);
+  const onTextAreaChange = (event) => {
+      setText(event.target.value)   
   }
 
   const onUpdateNotice = async (e) => { 
@@ -29,8 +28,6 @@ export default function Workspace({add, update, activeNote }) {
         text,
         createdAT: new Date()
       }
-  
-      console.log('updated note')
       update(newNotice)
       context.changeNote(newNotice)
       return
@@ -42,7 +39,6 @@ export default function Workspace({add, update, activeNote }) {
         createdAT: new Date()
       }
       add(newNote)
-      console.log('added note')
       context.changeNote(newNote)
     }
   }
