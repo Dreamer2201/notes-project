@@ -1,7 +1,5 @@
 import React from 'react'
 import { nanoid } from 'nanoid'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
 import { IconContext } from "react-icons"
 import { useState, useContext } from 'react';
 import {noteContext} from '../../context'
@@ -11,16 +9,8 @@ import { RiDeleteBinLine } from "react-icons/ri"
 import styles from './searchbox.module.scss'
 import Modal from '../Modal/ModalDelete'
 
-const toastParam = {
-    position: 'top-right',
-    autoClose: 3000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    theme: 'colored',
-  };
 
-export default function SearchBox({ removeNote, searchNotes }) {
+export default function SearchBox({ add, removeNote, searchNotes }) {
     const [isOpenModal, setIsOpenModal] = useState(false)
 
     const context = useContext(noteContext)
@@ -34,7 +24,16 @@ export default function SearchBox({ removeNote, searchNotes }) {
     const addNewNote = () => {
         context.changeNote({id: '', text: ''})
         console.log('I am clean context')
-        toast.info('Enter your note', toastParam)
+        const idNewNote = nanoid()
+        const newNote = {
+            id: idNewNote,
+            text: "",
+            createdAT: new Date()
+        }
+      add(newNote)
+      console.log('added note')
+      context.changeNote(newNote)
+        
     }
 
     const onDelete = () => {
@@ -44,8 +43,7 @@ export default function SearchBox({ removeNote, searchNotes }) {
   return (
     <div className={styles.wrapperSearchBoxBtns}>
         <div className={styles.wrapperBtns}>
-            <button className={styles.button} type='button' onClick={addNewNote}
-            
+            <button className={styles.buttonSearchBox} type='button' onClick={addNewNote}
             >
             <IconContext.Provider value={{ color: "green", className: "global-class-name" }}>
                 <div>
@@ -53,7 +51,7 @@ export default function SearchBox({ removeNote, searchNotes }) {
                 </div>
             </IconContext.Provider>
             </button>
-            <button className={styles.button} type='button' disabled={!context.note.id.trim().length} onClick={onDelete} >
+            <button className={styles.buttonSearchBox} type='button' disabled={!context.note.id.trim().length} onClick={onDelete} >
                 <IconContext.Provider value={{ color: "red", className: "global-class-name" }}>
                     <div>
                         <RiDeleteBinLine />
@@ -67,7 +65,6 @@ export default function SearchBox({ removeNote, searchNotes }) {
                     </div>
                 </IconContext.Provider>
             </button> */}
-            <ToastContainer />
         </div>
         <div>
         <label className={styles.label} htmlFor={filterId}>Find note</label>

@@ -1,9 +1,10 @@
-import './App.css';
 import { useState, useEffect } from 'react';
 import NoteContext from './context'
 import SearchBox from './components/SearchBox/SearchBox'
 import Sidebar from './components/Sidebar/Sidebar'
 import Workspace from './components/Workspace/Workspace'
+import styles from './App.module.scss'
+
 
 const idb = window.indexedDB || window.msIndexedDB || window.mozIndexedDB || window.webkitIndexedDB
 
@@ -52,8 +53,6 @@ const getAllNotes = () => {
     const notices = data.getAll()
 
     notices.onsuccess = (query) => {
-      console.log('I am work')
-      console.log(queryWord)
       setNotices(query.srcElement.result)
     }
     notices.onerror = () => {
@@ -157,13 +156,13 @@ const addNotice = (userNote) => {
 
   return (
     <NoteContext value={isActiveNote} >
-       <div className="App">
-      <header className="App-header">
+       <div className={styles.App}>
+      <header className={styles.AppHeader}>
         <SearchBox removeNote={deleteNote} activeNote={isActiveNote} add={addNotice} searchNotes={handleChangeFilter} />
       </header>
-      <main className='App-main'>
+      <main className={styles.AppMain}>
         <Sidebar notes={filterNotes} setActive={IsActiveNote} activeNote={isActiveNote} />
-        <div className="wrapperWorkSpace">
+        <div className={styles.wrapperWorkSpace}>
           <Workspace add={addNotice} update={updateNotice} activeNote={isActiveNote}/>
           </div>
       </main>

@@ -1,10 +1,9 @@
 .wrapperSidebar {
     width: 30%;
     max-height: calc(100vh - 50px);
-    outline: 1px solid grey;
+    border-right: 1px solid rgb(179, 168, 168);
     overflow-y: scroll;
 }
 .list {
-    margin-left: 10px;
     list-style: none;
 }

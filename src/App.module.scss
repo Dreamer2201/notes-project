@@ -1,14 +1,15 @@
 .App {
- 
+  
 }
 
 
-.App-header {
- 
+.AppHeader {
+  width: 100vw;
+  background-color: grey;
 }
 
-.App-main {
-  width: 100%;
+.AppMain {
+  
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -17,5 +18,4 @@
 .wrapperWorkSpace {
   width: 70%;
   min-height: calc(100vh - 50px);
-  outline: 1px solid grey;
 }

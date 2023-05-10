@@ -9,14 +9,17 @@
 .wrapperBtns {
     margin-left: 10px;
     display: flex;
-    gap: 5px;
+    gap: 10px;
     @media screen and (min-width: 768px) {
         margin-left: 10px;
     }
 }
-.button {
+.buttonSearchBox {
+    display: block;
     cursor: pointer;
-    padding: 5px auto;
+    width: 40px;
+    padding-top: 7px;
+    padding-bottom: 7px;
     background-color: #fff;
     border: transparent;
     border-radius: 5px;
@@ -28,7 +31,8 @@
     }
 
     @media screen and (min-width: 768px) {
-        width: 50px;
+        width: 70px;
+        padding: 25px auto;
     }
 }
 .label {
@@ -45,7 +49,8 @@
     border: transparent;
     border-radius: 5px;
     outline: none;
-    
+    padding-top: 7px;
+    padding-bottom: 7px;
     &::placeholder {
         color: grey;
         @media screen and (min-width: 768px) {

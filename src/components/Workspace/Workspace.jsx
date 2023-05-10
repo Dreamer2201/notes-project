@@ -49,20 +49,24 @@ export default function Workspace({add, update, activeNote }) {
 
 
   return (
-    <form className={styles.form} onSubmit={onUpdateNotice} >
-        <input className={styles.input}
+    <>
+      <form className={styles.form} onSubmit={onUpdateNotice} >
+        <textarea className={styles.input}
         name="notice"
         typeof="textarea"
         placeholder="Enter text notice"
         value={text}
         onChange={onTextAreaChange}
         >
-        </input>
+        </textarea>
         <button 
         className={styles.button} 
         type='submit'
         > Save
         </button>
-    </form>
+      </form>
+    </>
+    
+   
   )
 }
